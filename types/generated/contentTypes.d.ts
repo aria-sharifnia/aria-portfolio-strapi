@@ -387,6 +387,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    downloadResumeLabel: Schema.Attribute.String;
     greeting: Schema.Attribute.String;
     highlightedName: Schema.Attribute.String;
     jobTitle: Schema.Attribute.String;
@@ -400,6 +401,7 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    viewMyWorkLabel: Schema.Attribute.String;
   };
 }
 

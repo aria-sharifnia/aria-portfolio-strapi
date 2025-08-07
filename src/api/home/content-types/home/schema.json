@@ -32,6 +32,12 @@
       "allowedTypes": [
         "files"
       ]
+    },
+    "viewMyWorkLabel": {
+      "type": "string"
+    },
+    "downloadResumeLabel": {
+      "type": "string"
     }
   }
 }
