@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "homes",
+  "info": {
+    "singularName": "home",
+    "pluralName": "homes",
+    "displayName": "Home"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nameLogo": {
+      "type": "string"
+    },
+    "highlightedName": {
+      "type": "string"
+    },
+    "jobTitle": {
+      "type": "string"
+    },
+    "greeting": {
+      "type": "string"
+    },
+    "tagLine": {
+      "type": "string"
+    },
+    "resume": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
+    }
+  }
+}
