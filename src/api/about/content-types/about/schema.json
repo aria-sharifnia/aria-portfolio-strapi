@@ -1,0 +1,41 @@
+{
+  "kind": "singleType",
+  "collectionName": "abouts",
+  "info": {
+    "singularName": "about",
+    "pluralName": "abouts",
+    "displayName": "About"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "introTitle": {
+      "type": "string"
+    },
+    "introParagraph1": {
+      "type": "text"
+    },
+    "introParagraph2": {
+      "type": "text"
+    },
+    "profileImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "socialMedias": {
+      "type": "component",
+      "component": "about.social-link",
+      "repeatable": true
+    },
+    "bulletPoints": {
+      "type": "component",
+      "component": "about.icon-text",
+      "repeatable": true
+    }
+  }
+}

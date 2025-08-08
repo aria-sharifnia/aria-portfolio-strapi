@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_about_icon_texts",
+  "info": {
+    "displayName": "iconText",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "iconSVG": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}
