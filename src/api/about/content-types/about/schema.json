@@ -11,7 +11,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "introTitle": {
+    "heading": {
       "type": "string"
     },
     "introParagraph1": {
