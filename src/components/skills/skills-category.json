@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_skills_skills_categories",
+  "info": {
+    "displayName": "skillsCategory",
+    "icon": "stack"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "palette": {
+      "type": "enumeration",
+      "enum": [
+        "aqua",
+        "emerald",
+        "sky"
+      ]
+    },
+    "items": {
+      "type": "component",
+      "component": "skills.skill-item",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

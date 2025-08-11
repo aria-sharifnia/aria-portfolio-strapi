@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_skills_skill_items",
+  "info": {
+    "displayName": "skillItem",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "level": {
+      "type": "decimal"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  },
+  "config": {}
+}
