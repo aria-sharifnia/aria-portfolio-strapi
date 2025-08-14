@@ -1,0 +1,55 @@
+{
+  "collectionName": "components_experience_experience_items",
+  "info": {
+    "displayName": "experienceItem"
+  },
+  "options": {},
+  "attributes": {
+    "experienceKind": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "work",
+        "education"
+      ]
+    },
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "company": {
+      "type": "string",
+      "required": true
+    },
+    "location": {
+      "type": "string"
+    },
+    "startDate": {
+      "type": "date",
+      "required": true
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "mode": {
+      "type": "enumeration",
+      "enum": [
+        "remote",
+        "hybrid",
+        "onsite"
+      ]
+    },
+    "gpa": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "badges": {
+      "type": "component",
+      "component": "shared.badge",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}
