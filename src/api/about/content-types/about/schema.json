@@ -27,14 +27,14 @@
         "images"
       ]
     },
-    "socialMedias": {
-      "type": "component",
-      "component": "about.social-link",
-      "repeatable": true
-    },
     "bulletPoints": {
       "type": "component",
       "component": "about.icon-text",
+      "repeatable": true
+    },
+    "socials": {
+      "type": "component",
+      "component": "about.social-link",
       "repeatable": true
     }
   }

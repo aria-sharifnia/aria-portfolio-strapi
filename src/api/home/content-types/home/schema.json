@@ -26,13 +26,6 @@
     "tagLine": {
       "type": "string"
     },
-    "resume": {
-      "type": "media",
-      "multiple": false,
-      "allowedTypes": [
-        "files"
-      ]
-    },
     "viewMyWorkLabel": {
       "type": "string"
     },

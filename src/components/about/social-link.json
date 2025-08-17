@@ -15,6 +15,38 @@
     },
     "url": {
       "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string"
+    },
+    "themes": {
+      "type": "enumeration",
+      "enum": [
+        "rose",
+        "sky",
+        "slate",
+        "emerald"
+      ]
+    },
+    "showInContact": {
+      "type": "boolean"
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "files"
+      ]
+    },
+    "showInAbout": {
+      "type": "boolean",
+      "default": true
     }
   },
   "config": {}

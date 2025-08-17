@@ -19,7 +19,14 @@ export interface AboutSocialLink extends Struct.ComponentSchema {
     icon: 'user';
   };
   attributes: {
+    buttonText: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    file: Schema.Attribute.Media<'files'>;
     iconSVG: Schema.Attribute.Media<'images'>;
+    label: Schema.Attribute.String;
+    showInAbout: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    showInContact: Schema.Attribute.Boolean;
+    themes: Schema.Attribute.Enumeration<['rose', 'sky', 'slate', 'emerald']>;
     url: Schema.Attribute.String;
   };
 }

@@ -396,7 +396,7 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     profileImage: Schema.Attribute.Media<'images'>;
     publishedAt: Schema.Attribute.DateTime;
-    socialMedias: Schema.Attribute.Component<'about.social-link', true>;
+    socials: Schema.Attribute.Component<'about.social-link', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -456,7 +456,6 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
       Schema.Attribute.Private;
     nameLogo: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    resume: Schema.Attribute.Media<'files'>;
     tagLine: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
