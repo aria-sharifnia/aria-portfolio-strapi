@@ -84,6 +84,35 @@ export interface SkillsSkillsCategory extends Struct.ComponentSchema {
   };
 }
 
+export interface TestimonialTestimonialCard extends Struct.ComponentSchema {
+  collectionName: 'components_testimonial_testimonial_cards';
+  info: {
+    displayName: 'testimonialCard';
+  };
+  attributes: {
+    badge: Schema.Attribute.Component<'shared.badge', true>;
+    company: Schema.Attribute.String & Schema.Attribute.Required;
+    profilePicture: Schema.Attribute.Media<'images'>;
+    profileUrl: Schema.Attribute.String;
+    quotes: Schema.Attribute.Component<'testimonial.testimonial-quote', true>;
+    reviewerName: Schema.Attribute.String & Schema.Attribute.Required;
+    role: Schema.Attribute.String & Schema.Attribute.Required;
+    socialIcon: Schema.Attribute.Media<'images'>;
+    sourceUrl: Schema.Attribute.String;
+  };
+}
+
+export interface TestimonialTestimonialQuote extends Struct.ComponentSchema {
+  collectionName: 'components_testimonial_testimonial_quotes';
+  info: {
+    displayName: 'testimonialQuote';
+  };
+  attributes: {
+    date: Schema.Attribute.Date & Schema.Attribute.Required;
+    quote: Schema.Attribute.Text & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -93,6 +122,8 @@ declare module '@strapi/strapi' {
       'shared.badge': SharedBadge;
       'skills.skill-item': SkillsSkillItem;
       'skills.skills-category': SkillsSkillsCategory;
+      'testimonial.testimonial-card': TestimonialTestimonialCard;
+      'testimonial.testimonial-quote': TestimonialTestimonialQuote;
     }
   }
 }
