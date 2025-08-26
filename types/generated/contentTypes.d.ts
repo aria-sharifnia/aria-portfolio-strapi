@@ -493,6 +493,40 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiManifestManifest extends Struct.SingleTypeSchema {
+  collectionName: 'manifests';
+  info: {
+    displayName: 'Manifest';
+    pluralName: 'manifests';
+    singularName: 'manifest';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    aboutVersion: Schema.Attribute.String;
+    contactVersion: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    experienceVersion: Schema.Attribute.String;
+    globalVersion: Schema.Attribute.String;
+    homeVersion: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::manifest.manifest'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    skillsVersion: Schema.Attribute.String;
+    testimonialsVersion: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiSkillSkill extends Struct.SingleTypeSchema {
   collectionName: 'skills';
   info: {
@@ -1066,6 +1100,7 @@ declare module '@strapi/strapi' {
       'api::contact.contact': ApiContactContact;
       'api::experience.experience': ApiExperienceExperience;
       'api::home.home': ApiHomeHome;
+      'api::manifest.manifest': ApiManifestManifest;
       'api::skill.skill': ApiSkillSkill;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;

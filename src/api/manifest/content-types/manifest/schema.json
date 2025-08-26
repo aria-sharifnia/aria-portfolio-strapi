@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "manifests",
+  "info": {
+    "singularName": "manifest",
+    "pluralName": "manifests",
+    "displayName": "Manifest"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "globalVersion": {
+      "type": "string"
+    },
+    "homeVersion": {
+      "type": "string"
+    },
+    "aboutVersion": {
+      "type": "string"
+    },
+    "contactVersion": {
+      "type": "string"
+    },
+    "skillsVersion": {
+      "type": "string"
+    },
+    "experienceVersion": {
+      "type": "string"
+    },
+    "testimonialsVersion": {
+      "type": "string"
+    }
+  }
+}
