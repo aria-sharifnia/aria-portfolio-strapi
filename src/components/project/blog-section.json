@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_project_blog_sections",
+  "info": {
+    "displayName": "blogSection"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "body": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

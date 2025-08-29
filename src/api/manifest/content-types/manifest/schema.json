@@ -31,6 +31,9 @@
     },
     "testimonialsVersion": {
       "type": "string"
+    },
+    "projectVersion": {
+      "type": "string"
     }
   }
 }

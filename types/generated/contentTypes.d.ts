@@ -518,9 +518,40 @@ export interface ApiManifestManifest extends Struct.SingleTypeSchema {
       'api::manifest.manifest'
     > &
       Schema.Attribute.Private;
+    projectVersion: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     skillsVersion: Schema.Attribute.String;
     testimonialsVersion: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiProjectProject extends Struct.SingleTypeSchema {
+  collectionName: 'projects';
+  info: {
+    displayName: 'Project';
+    pluralName: 'projects';
+    singularName: 'project';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    heading: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::project.project'
+    > &
+      Schema.Attribute.Private;
+    projects: Schema.Attribute.Component<'project.project-item', true>;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1101,6 +1132,7 @@ declare module '@strapi/strapi' {
       'api::experience.experience': ApiExperienceExperience;
       'api::home.home': ApiHomeHome;
       'api::manifest.manifest': ApiManifestManifest;
+      'api::project.project': ApiProjectProject;
       'api::skill.skill': ApiSkillSkill;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'plugin::content-releases.release': PluginContentReleasesRelease;

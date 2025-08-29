@@ -1,0 +1,53 @@
+{
+  "collectionName": "components_project_project_items",
+  "info": {
+    "displayName": "projectItem"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "startDate": {
+      "type": "date"
+    },
+    "endDate": {
+      "type": "date"
+    },
+    "demoUrl": {
+      "type": "string"
+    },
+    "repoUrl": {
+      "type": "string"
+    },
+    "badges": {
+      "type": "component",
+      "component": "shared.badge",
+      "repeatable": true
+    },
+    "highlights": {
+      "type": "component",
+      "component": "project.highlights",
+      "repeatable": true
+    },
+    "blogTitle": {
+      "type": "string"
+    },
+    "blogSection": {
+      "type": "component",
+      "component": "project.blog-section",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

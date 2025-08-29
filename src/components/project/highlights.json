@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_project_highlights",
+  "info": {
+    "displayName": "highlights"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

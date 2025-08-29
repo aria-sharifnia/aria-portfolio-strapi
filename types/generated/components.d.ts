@@ -51,6 +51,47 @@ export interface ExperienceExperienceItem extends Struct.ComponentSchema {
   };
 }
 
+export interface ProjectBlogSection extends Struct.ComponentSchema {
+  collectionName: 'components_project_blog_sections';
+  info: {
+    displayName: 'blogSection';
+  };
+  attributes: {
+    body: Schema.Attribute.Text;
+    heading: Schema.Attribute.String;
+  };
+}
+
+export interface ProjectHighlights extends Struct.ComponentSchema {
+  collectionName: 'components_project_highlights';
+  info: {
+    displayName: 'highlights';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+  };
+}
+
+export interface ProjectProjectItem extends Struct.ComponentSchema {
+  collectionName: 'components_project_project_items';
+  info: {
+    displayName: 'projectItem';
+  };
+  attributes: {
+    badges: Schema.Attribute.Component<'shared.badge', true>;
+    blogSection: Schema.Attribute.Component<'project.blog-section', true>;
+    blogTitle: Schema.Attribute.String;
+    cover: Schema.Attribute.Media<'images', true>;
+    demoUrl: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    endDate: Schema.Attribute.Date;
+    highlights: Schema.Attribute.Component<'project.highlights', true>;
+    repoUrl: Schema.Attribute.String;
+    startDate: Schema.Attribute.Date;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SharedBadge extends Struct.ComponentSchema {
   collectionName: 'components_shared_badges';
   info: {
@@ -126,6 +167,9 @@ declare module '@strapi/strapi' {
       'about.icon-text': AboutIconText;
       'about.social-link': AboutSocialLink;
       'experience.experience-item': ExperienceExperienceItem;
+      'project.blog-section': ProjectBlogSection;
+      'project.highlights': ProjectHighlights;
+      'project.project-item': ProjectProjectItem;
       'shared.badge': SharedBadge;
       'skills.skill-item': SkillsSkillItem;
       'skills.skills-category': SkillsSkillsCategory;
