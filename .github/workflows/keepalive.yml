@@ -2,58 +2,50 @@ name: Keep Strapi Awake
 
 on:
   schedule:
-    - cron: "6,18,30,42,54 * * * *"
-    - cron: "12,24,36,48 * * * *"
+    - cron: "*/12 * * * *"
   workflow_dispatch:
 
 permissions:
   contents: read
+
 concurrency:
   group: strapi-keepalive
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   ping:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 2
 
     steps:
-      - name: Ping Strapi (warm + verify, with small retry)
+      - name: Ping Strapi (keepalive)
         env:
           STRAPI_URL: ${{ secrets.STRAPI_URL }}
         run: |
           set -euo pipefail
           echo "Pinging Strapi at ${STRAPI_URL}"
-          attempt=0
-          success=0
 
-          # up to 3 tries within the 3-min job timeout
-          while [ $attempt -lt 3 ]; do
-            attempt=$((attempt+1))
+          # Two quick tries. Total worst-case < ~35s.
+          for attempt in 1 2; do
             echo "Attempt $attempt..."
 
-            # Warm-up request
-            code1=$(curl -m 20 -sS -o /dev/null -w "%{http_code}" "$STRAPI_URL" || echo 599)
-            # brief pause, then verify
-            sleep 8
-            code2=$(curl -m 20 -sS -o /dev/null -w "%{http_code}" "$STRAPI_URL" || echo 599)
-            echo "HTTP codes: $code1, $code2"
-
-            # succeed if either call is < 500 (200/301/404 are fine for wake-up)
-            if [ "${code1:-999}" -lt 500 ] || [ "${code2:-999}" -lt 500 ]; then
-              success=1
-              break
+            # Use HEAD first (lighter). If server/proxy rejects HEAD, fall back to GET.
+            code=$(curl -I -L -m 12 -sS -o /dev/null -w "%{http_code}" "$STRAPI_URL" || echo 599)
+            if [ "$code" = "405" ] || [ "$code" = "000" ] || [ "$code" = "599" ]; then
+              code=$(curl -L -m 12 -sS -o /dev/null -w "%{http_code}" "$STRAPI_URL" || echo 599)
             fi
 
-            # short backoff before retrying
-            sleep 12
+            echo "HTTP code: $code"
+
+            # success if anything < 500 (200/301/404 all fine for "awake")
+            if [ "${code:-999}" -lt 500 ]; then
+              echo "Strapi responded (<500). Done."
+              exit 0
+            fi
+
+            sleep 10
           done
 
-          if [ $success -eq 1 ]; then
-            echo "Strapi responded (<500)."
-            exit 0
-          else
-            echo "Strapi did not respond successfully (>=500)."
-            exit 1
-          fi
+          echo "Strapi did not respond successfully (>=500)."
+          exit 1
