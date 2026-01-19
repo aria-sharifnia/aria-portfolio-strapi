@@ -59,6 +59,9 @@ export interface ProjectBlogSection extends Struct.ComponentSchema {
   attributes: {
     body: Schema.Attribute.Text;
     heading: Schema.Attribute.String;
+    reportLinkText: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'View full report (PDF)'>;
+    reportPdf: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
 

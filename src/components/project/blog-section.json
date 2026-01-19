@@ -10,6 +10,20 @@
     },
     "body": {
       "type": "text"
+    },
+    "reportPdf": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "reportLinkText": {
+      "type": "string",
+      "default": "View full report (PDF)"
     }
   },
   "config": {}
